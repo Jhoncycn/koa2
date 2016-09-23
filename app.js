@@ -17,7 +17,7 @@ app.use(views(__dirname + '/views', {
   extension: 'ejs'
 }));
 
-//注册路由
+//路由
 app.use(router.routes(),router.allowedMethods());
 
 //连接mongodb
@@ -28,6 +28,6 @@ mongoose.connect(DATABASE_URL, (err) => {
   if (err) throw err;
   console.log('connect mongodb`s database success!!!!');
 });
-//在端口3000监听:
+在端口3000监听:
 app.listen(3000);
 console.log('app started at port 3000...');

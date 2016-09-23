@@ -26,5 +26,21 @@ module.exports = {
         }catch (e) {
             ctx.body = "注册失败，系统错误";
         }
+    },
+    UserLogin: async (ctx, next) => {
+        var username = ctx.request.body.username;
+        var password = ctx.request.body.password;
+        var md5=crypto.createHash('md5');
+        try{
+            var user = await models.User.findOne({username:username});
+            password=md5.update(password+user.salt,'utf8').digest('base64');
+            if (password===user.password) {
+                ctx.body="登陆成功";
+            }else{
+                ctx.body="密码错误";
+            }
+        }catch(e){
+            ctx.body="登陆失败，用户不存在";
+        }
     }
 }

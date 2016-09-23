@@ -6,5 +6,6 @@ router.get('/',index.index);
 //注册
 router.get('/register',web.register);
 router.post('/UserRegister',web.UserRegister);
-
+// 登陆
+router.post('/UserLogin',web.UserLogin);
 module.exports = router;

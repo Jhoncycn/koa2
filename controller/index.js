@@ -1,7 +1,7 @@
 module.exports = {
     index: async (ctx, next) => {
     	await ctx.render('index', {
-	    title:'jhoncy的博客',
+	    title:'首页',
 	    name:'jhoncy'
 	  });
     }
