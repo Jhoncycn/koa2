@@ -5,9 +5,14 @@ const views = require('koa-views');
 const convert  = require('koa-convert');
 const mongoose = require('mongoose');
 const path = require('path');
+const session = require('koa-session');
 const app = new Koa();
 //post body 解析
 app.use(bodyParser());
+
+//use session
+app.keys = ['jhoncy-blog'];
+app.use(session(app));
 
 //static file
 app.use(convert(require('koa-static')(path.join(__dirname + '/public'))));
